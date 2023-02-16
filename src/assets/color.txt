@@ -1,0 +1,4 @@
+Dashboard
+fundo: SlateBlue	#6A5ACD	(106,90,205)
+menu lateral : SlateBlue1	#836FFF	(131,111,255)
+cards: SlateBlue3	#6959CD	(105,89,205)

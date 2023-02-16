@@ -1,0 +1,29 @@
+.dashboard{
+    width: 100%;
+    display: flex;
+    
+    
+}
+.dash-up-side{
+   
+    height: 100%;
+    background-color: #e8f1f2;
+    margin-left: 300px;
+}
+.sidebar-fixed{
+    position: fixed;
+}
+
+@media only screen and (max-width: 844px) {
+
+    .sidebar-fixed{
+        visibility: hidden;
+    }
+    .change-months{
+        visibility: hidden;
+    }
+    .dash-up-side{
+margin: 0px;
+height: 100%;
+    }
+}

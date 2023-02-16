@@ -1,0 +1,124 @@
+.acc-cards {
+    font-family: 'Montserrat', sans-serif;
+    color: #e8f1f2;
+
+}
+
+.acc-cards h2 {
+    font-weight: 800;
+    font-size: 32px;
+    margin-left: 114px;
+    color: #13293d;
+    margin-top: 114px;
+}
+
+.acc-container {
+    display: flex;
+    margin-left: 114px;
+    margin-top: 30px;
+}
+
+.acc-card {
+    margin-right: 15px;
+
+    width: 400px;
+    height: 200px;
+    background-color: #13293D;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.acc-text {
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.acc-text p {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.acc-text button {
+    border-radius: 100px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #e8f1f2;
+    background-color: transparent;
+    color: #e8f1f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.acc-text button:hover {
+    background-color: #e8f1f2;
+    color: #13293D;
+    transition: 0.3s;
+    font-size: 38px;
+}
+
+.acc-text h5 {
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+
+}
+
+.saldo-credito {
+    text-align: center;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    
+    align-items: center;
+    
+}
+.saldo-credito h3{
+    margin-left: 50px;
+}
+
+.buttons-acc {
+    display: flex;
+    width: 100%;
+}
+
+.buttons-acc button {
+    width: 50%;
+    height: 30px;
+    border-top: 2px solid #fff;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-radius: 0px;
+    background-color: transparent;
+    color: #e8f1f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.buttons-acc button:hover {
+    background-color: #fff;
+    color: #13293D;
+    transition: 0.3s;
+    font-size: 16px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
