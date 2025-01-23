@@ -1,59 +1,69 @@
-import React, { createContext, useState, useContext } from "react";
-import { doc, setDoc, addDoc, collection, getDocs, query, where, getDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
+import React, { createContext, useContext, useState } from "react";
 import { db } from "../services/firebaseConfig";
-import { useUserAuth } from "./UserAuthContext";
 import { useMonth } from "./MonthContext";
-
+import { useUserAuth } from "./UserAuthContext";
 
 const AddCashContext = createContext();
 
 export function AddCashContextProvider({ children }) {
-    const [amount, setAmount] = useState();
-    const [receiptDate, setReceiptDate] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const { user } = useUserAuth();
-    const { month } = useMonth();
+  const [amount, setAmount] = useState();
+  const [receiptDate, setReceiptDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const { user } = useUserAuth();
+  const { month } = useMonth();
 
-    const receitasCollectionRef = collection(db, `users/${user.uid}/receitas/meses/${month}`,);
-    const despesasCollectionRef = collection(db, `users/${user.uid}/despesas/meses/${month}`,);
+  const receitasCollectionRef = collection(
+    db,
+    `users/${user.uid}/receitas/meses/${month}`
+  );
+  const despesasCollectionRef = collection(
+    db,
+    `users/${user.uid}/despesas/meses/${month}`
+  );
 
+  const addCash = async (e) => {
+    e.preventDefault();
+    await addDoc(receitasCollectionRef, {
+      amount: amount,
+      receiptdate: receiptDate,
+      description: description,
+      category: category,
+    });
+  };
+  const addSpend = async (e) => {
+    e.preventDefault();
+    await addDoc(despesasCollectionRef, {
+      amount: amount,
+      receiptdate: receiptDate,
+      description: description,
+      category: category,
+    });
+  };
 
-    const addCash = async (e) => {
-        e.preventDefault()
-        await addDoc(receitasCollectionRef, {
-            amount: amount,
-            receiptdate: receiptDate,
-            description: description,
-            category: category,
-        });
-    }
-    const addSpend = async (e) => {
-        e.preventDefault()
-        await addDoc(despesasCollectionRef, {
-            amount: amount,
-            receiptdate: receiptDate,
-            description: description,
-            category: category,
-        });
-    }
-    
-
-
-    return (
-        <AddCashContext.Provider
-            value={{
-                amount, setAmount,
-                receiptDate, setReceiptDate,
-                description, setDescription,
-                category, setCategory, addCash, receitasCollectionRef, addSpend, despesasCollectionRef
-            }}
-        >
-            {children}
-        </AddCashContext.Provider>
-    )
+  return (
+    <AddCashContext.Provider
+      value={{
+        amount,
+        setAmount,
+        receiptDate,
+        setReceiptDate,
+        description,
+        setDescription,
+        category,
+        setCategory,
+        addCash,
+        receitasCollectionRef,
+        addSpend,
+        despesasCollectionRef,
+      }}
+    >
+      {children}
+    </AddCashContext.Provider>
+  );
 }
 
 export function useAddCash() {
-    return useContext(AddCashContext);
+  return useContext(AddCashContext);
 }

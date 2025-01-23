@@ -1,17 +1,17 @@
 
 import React from "react";
-import "./sidebar.css"
-import { FiHome, FiSettings } from 'react-icons/fi';
 import { BiTransfer } from 'react-icons/bi';
-import { CgTranscript } from 'react-icons/cg';
 import { BsBank2, BsThreeDots } from 'react-icons/bs';
+import { CgTranscript } from 'react-icons/cg';
+import { FiHome, FiSettings } from 'react-icons/fi';
 import { GoGraph } from 'react-icons/go';
 import { Link, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
+import "./sidebar.css";
 
 
 export default function Sidebar() {
-    const { logOut, user } = useUserAuth();
+    const { logOut } = useUserAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {

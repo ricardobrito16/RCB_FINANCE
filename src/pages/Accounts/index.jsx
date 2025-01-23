@@ -10,17 +10,11 @@ export default function Accounts() {
                 <div className="sidebar-fixed">
                     <Sidebar />
                 </div>
-
                 <div className="up-side">
                     <Months />
-                    <AccCards/>
-                    
+                    <AccCards />
                 </div>
-
             </div>
-
-
         </>
-
     )
 }
